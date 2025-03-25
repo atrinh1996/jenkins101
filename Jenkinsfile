@@ -1,12 +1,8 @@
 pipeline {
     agent { 
-        // node {
-        //     label 'docker-python'
-        //     image 'python:3.10'
-        //     }
-        dockerfile {
-            filename 'Dockerfile'
-        }
+        node {
+            label 'docker-agent'
+            }
       }
     triggers {
         pollSCM '*/5 * * * *'
@@ -16,6 +12,7 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
+                yum install -y python3-pip
                 cd myapp
                 pip install -r requirements.txt
                 '''
