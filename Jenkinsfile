@@ -2,7 +2,7 @@ pipeline {
     agent { 
         node {
             label 'docker-python'
-            image 'python:3'
+            image 'python:3.10'
             }
       }
     triggers {
