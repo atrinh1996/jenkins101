@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                yum install -y python3-pip
+                sudo yum install -y python3-pip
                 cd myapp
                 pip install -r requirements.txt
                 '''
