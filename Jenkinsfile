@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         node {
-            label 'docker-agent'
+            label 'docker-agent-packages'
             }
       }
     triggers {
@@ -12,7 +12,6 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                sudo yum install -y python3-pip
                 cd myapp
                 pip install -r requirements.txt
                 '''
